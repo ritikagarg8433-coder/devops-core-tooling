@@ -3,4 +3,4 @@
 APP_NAME = "Devops Core Tooling"
 APP_MODE = "development"
 
-FEATURE = "default"
+FEATURE = "authentication"
