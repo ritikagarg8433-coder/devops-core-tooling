@@ -3,4 +3,5 @@
 APP_NAME = "Devops Core Tooling"
 APP_MODE = "development"
 
-FEATURE = "authentication"
+AUTH_ENABLED = True
+LOGGER_ENABLED = True
