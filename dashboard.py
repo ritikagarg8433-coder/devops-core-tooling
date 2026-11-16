@@ -2,14 +2,14 @@
 #user Dasboard Module
 
 def get_user_dashboard(username):
-    dashboard = {
+    user_dashboard = {
           "username": username,
           "status": "Active",
           "role":  "Developer",
           "department": "DevOps"
     }
 
-    return dashboard
+    return user_dashboard
 
 
 if __name__ == "__main__":
