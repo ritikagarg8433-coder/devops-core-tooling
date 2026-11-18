@@ -1,8 +1,8 @@
 
-def test_dashboard():
-    assert 2 + 2 == 4
+
+from dashboard import get_user_dashboard
 
 
-def test_status():
-    status = "Active"
-    assert status == "Active"
+def test_dashboard_status():
+    user = get_user_dashboard("Ritika")
+    assert user["status"] == "Active"
