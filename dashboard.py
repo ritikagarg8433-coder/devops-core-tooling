@@ -4,7 +4,7 @@
 def get_user_dashboard(username):
     dashboard = {
         "username": username,
-        "status": "Active",
+        "status": "Inactive",
         "role": "Developer",
         "department": "DevOps"
     }
