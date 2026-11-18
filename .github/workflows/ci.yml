@@ -1,0 +1,63 @@
+
+# Name of the GitHub Actions workflow
+name: Python CI Pipeline
+
+# Define when the workflow should execute
+on:
+
+  # Run workflow whenever code is pushed to main
+  push:
+    branches:
+      - main
+
+  # Run workflow whenever a Pull Request targets main
+  pull_request:
+    branches:
+      - main
+
+# Set minimum required repository permissions
+permissions:
+  contents: read
+
+# Define the jobs
+jobs:
+
+  # CI job for Python linting and testing
+  ci:
+    name: Lint and test
+
+    # Use an Ubuntu virtual machine
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Step 1: Download repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install Python 3.11
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+          # Cache pip dependencies
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
+
+      # Step 3: Upgrade pip
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      # Step 4: Install project dependencies
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      # Step 5: Run Python linter
+      - name: Run Flake8
+        run: flake8 dashboard.py tests --count --show-source --statistics
+
+      # Step 6: Run unit tests
+      - name: Run Pytest
+        run: pytest -v
+

@@ -1,1 +1,4 @@
-# No external dependencies are required for this project.
+
+
+flake8
+pytest
